@@ -1,0 +1,32 @@
+body{
+    background-color: rgb(65, 49, 124);
+}
+h1{
+    color: white;
+}
+.label{
+margin-right: 49.2%;
+margin-top: 3%;
+color: white;
+}
+.datelabel{
+    margin-right: 49.2%;
+    margin-top: 1%;
+    color: white;
+    }
+.todoinput{
+    width: 500px;
+    margin-left: 21%;
+    margin-top: 1%;
+    border: 1px solid grey;
+}
+.set{
+    margin-right: 52%;
+    margin-top: 1%;
+    width: 80px;
+    background-color: rgb(22, 18, 56);
+    border: none;
+}
+.formdiv{
+    margin-left: 15%;
+}

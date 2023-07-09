@@ -1,23 +1,55 @@
-import logo from './logo.svg';
 import './App.css';
+import { Button, Card } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AddToDo from './components/form';
+import { useState } from 'react';
+
+function Todo({ todo, index, markTodo, removeTodo }) {
+  return (
+    <div className="todo">
+     
+      <input type='checkbox' onClick={() => markTodo(index)} className='done'></input>
+      
+      <p style={{ textDecoration: todo.isDone ? "line-through" : "" }} className='text'>{todo.text}</p>
+      
+      <Button variant="outline-danger" onClick={() => removeTodo(index)} className='remove'>✕</Button> 
+    </div>
+
+  );
+}
+
+
 
 function App() {
+  const [todos, setTodos]=useState([]);
+
+  const addTodo=(text)=>{
+     const newTodo=[...todos,{text}];
+     setTodos(newTodo)
+  };
+  const delTodo=(index)=>{
+    const newTodo=[...todos];
+    newTodo.splice(index,1);
+    setTodos(newTodo);
+  };
+  const marktodo=(index)=>{
+    const newTodo=[...todos];
+    newTodo[index].isDone=true;
+    setTodos(newTodo);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ToDo App</h1>
+      <AddToDo addTodo={addTodo}/>
+      <div>
+        {todos.map((todo,index)=>(
+          <Card className='card'>
+               <Card.Body>
+                <Todo  key={index} index={index} todo={todo} markTodo={marktodo} removeTodo={delTodo}/>
+               </Card.Body>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 }

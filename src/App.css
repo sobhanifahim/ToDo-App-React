@@ -36,3 +36,27 @@
     transform: rotate(360deg);
   }
 }
+.todo{
+  display: flex;
+}
+.card{
+  margin: 0% 30%;
+  background: rgb(22, 18, 56) !important;
+  color: white !important;
+}
+.done{
+   margin-left: 2%;
+   height: 35px;
+   width: 35px;
+   accent-color: green;
+   border-radius: 50%;
+   
+   
+}
+.remove{
+  margin-left: 35%;
+  position: fixed;
+}
+.text{
+  margin-left: 5%;
+}
